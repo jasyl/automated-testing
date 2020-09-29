@@ -5,15 +5,26 @@ require_relative 'card'
 
 class Deck
 
-  def initialize
+  attr_reader :cards
 
+  def initialize(values, suits)
+    @cards = []
+    values.each do |value|
+      suits .each do |suit|
+        @cards << Card.new(value, suit)
+      end
+    end
   end
 
   def draw
-    # returns a card
+    return @cards.pop # returns a card
   end
 
   def shuffle
-    # shuffles the deck
+    return @cards.shuffle!
+  end
+
+  def count
+    return @cards.length
   end
 end
