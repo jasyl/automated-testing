@@ -17,6 +17,7 @@ class Deck
   end
 
   def draw
+    raise ArgumentError, "no more cards to draw" if count < 1
     return @cards.pop # returns a card
   end
 
